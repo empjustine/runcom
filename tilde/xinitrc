@@ -1,0 +1,4 @@
+# ~/.xinitrc
+# ==========
+
+. sources ${XDG_CONFIG_HOME}/runcom/xinitrc/*

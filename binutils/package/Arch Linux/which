@@ -1,0 +1,14 @@
+#!/bin/sh
+
+dpkg -S $*
+
+echo "Local:"
+pacman --query --owns "$@"
+
+echo "Remote:"
+pkgfile "$@"
+if [ "$?" = "1" ]; then
+  echo "$0: $* not found."
+  echo "Regenerate pkgfile database:"
+  echo "  sudo pkgfile --update"
+fi

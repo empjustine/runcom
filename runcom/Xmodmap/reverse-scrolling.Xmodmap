@@ -1,0 +1,5 @@
+! Natural scrolling like Mac OS X Lion
+
+! 4, 5: Vertical scrolling
+! 6, 7: Horizontal scrolling
+pointer = 1 2 3 5 4 7 6 8 9 10 11 12

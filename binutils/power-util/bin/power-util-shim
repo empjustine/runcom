@@ -1,0 +1,8 @@
+#!/bin/sh
+
+# power-util-shim
+# ===============
+
+# Generic shim handler
+
+systemctl ${0##*/}

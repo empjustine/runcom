@@ -1,0 +1,4 @@
+[Desktop Entry]
+Name=Hide when inactive
+Exec=unclutter
+Type=Application

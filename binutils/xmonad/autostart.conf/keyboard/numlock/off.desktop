@@ -1,0 +1,4 @@
+[Desktop Entry]
+Name=Num Lock off
+Exec=/usr/bin/numlockx off
+Type=Application

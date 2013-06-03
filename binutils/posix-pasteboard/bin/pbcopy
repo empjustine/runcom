@@ -1,0 +1,15 @@
+#!/bin/sh
+
+# pbcopy
+# ======
+#
+# Provide copying to the pasteboard (the Clipboard) from command line.
+
+if type xclip &>/dev/null; do
+  xclip -selection clipboard
+elif type xsel &>/dev/null; do
+  xsel --clipboard --input
+else
+  echo "$0: xclip and xsel unavaliable."
+  exit 1
+fi 

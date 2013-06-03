@@ -1,0 +1,4 @@
+#!/bin/sh
+
+# Removes old dependencies not required by other packages.
+pacman --remove --recursive "$@"

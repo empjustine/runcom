@@ -1,0 +1,40 @@
+#!/bin/sh
+#
+#/ X Composition Manager management.
+#/ Usage: x-composition-manager [OPTION]
+#/ Start or restart the X composition manager if no OPTION is set.
+#/
+#/   -h, --help   display this help and exit
+#/   -s, --stop   stop composition manager
+#/   -q, --query  query for composition manager
+#/                returns 0 if composition manager is running, else 1
+
+# XXX: remove from here
+export X_COMPOSITION_MANAGER="xcompmgr"
+export X_COMPOSITION_MANAGER_OPTIONS="-c"
+
+x_composition_manager_help() {
+  grep '^#/' <"$0" | cut -c4-
+  exit
+}
+
+x_composition_manager_check() {
+  pgrep -- "${X_COMPOSITION_MANAGER}" &>/dev/null
+}
+
+x_composition_manager_stop() {
+  pkill -- "${X_COMPOSITION_MANAGER}"
+}
+
+x_composition_manager_start() {
+  x_composition_manager_stop
+  "${X_COMPOSITION_MANAGER}" ${X_COMPOSITION_MANAGER_OPTIONS} &
+  exit
+}
+
+case "$1" in
+  ""            ) x_composition_manager_start ;;
+  "-q"|"--query") x_composition_manager_check ;;
+  "-s"|"--stop" ) x_composition_manager_stop; exit ;;
+  *             ) x_composition_manager_help;;
+esac

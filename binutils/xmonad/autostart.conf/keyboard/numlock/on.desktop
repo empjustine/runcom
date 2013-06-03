@@ -1,0 +1,4 @@
+[Desktop Entry]
+Name=Num Lock on 
+Exec=/usr/bin/numlockx on
+Type=Application

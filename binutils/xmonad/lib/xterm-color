@@ -1,0 +1,55 @@
+#!/usr/bin/env ruby
+
+class NotXTerm < StandardError;end
+
+module Ascii
+
+  Escape = "\033"
+  Bell =   "\007"
+end
+
+module XTerm
+
+  module Escape
+
+    Start = "#{Ascii::Escape}]"
+    Stop  = "#{Ascii::Bell}"
+  end
+
+  module 
+
+  def escape(*code)
+
+    print "#{Escape::Start}#{[*code].join(';')}#{Escape::Stop}"
+  end
+
+  def colour(number, _colour)
+
+    escape 4, number, _colour
+  end
+
+  def foreground(_colour)
+
+    escape 10, _colour
+  end
+
+  def background(_colour)
+
+    escape 11, _colour
+  end
+
+  def icon_name_and_window_title(_string)
+
+    escape 0, _string
+  end
+
+  def icon_name(_string)
+
+    escape 1, _string
+  end
+
+  def window_title(_string)
+
+    escape 2, _string
+  end
+end

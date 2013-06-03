@@ -1,0 +1,5 @@
+#!/bin/sh
+
+#\ Discard all local changes to files
+
+# git reset --hard HEAD

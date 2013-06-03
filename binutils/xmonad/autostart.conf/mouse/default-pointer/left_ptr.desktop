@@ -1,0 +1,4 @@
+[Desktop Entry]
+Name=left_ptr
+Exec=xsetroot -cursor_name left_ptr
+Type=Application

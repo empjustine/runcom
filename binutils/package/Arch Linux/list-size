@@ -1,0 +1,4 @@
+#!/bin/sh
+#BruceLEET
+#http://www.commandlinefu.com/commands/view/7613/arch-linux-sort-installed-packages-by-size
+paste <(pacman --query | awk '{ print $1; }' | xargs pacman --query --info | grep 'Size' | awk '{ print $4$5; }') <(pacman --query | awk '{print $1; }') | sort -n | column -t
